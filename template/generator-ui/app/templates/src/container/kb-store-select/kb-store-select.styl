@@ -1,0 +1,43 @@
+@import '../../shared/stylus/variable.styl'
+@import '../../shared/stylus/mixin.styl'
+@import '~stylus-px2rem/index'
+html-font-size = 75px;
+
+.store-select
+  height 100vh
+  .store-select__container
+    height 100%
+    display flex
+    flex-direction column
+    .list
+      margin 0 24px 24px 24px
+      overflow auto
+      flex-grow 1
+      .list__cell
+        justify-content space-between
+        background-color #fff
+        margin-top 24px
+        display flex
+        width 702px
+        height 96px
+        align-items center
+        font-size 26px
+        color #666
+        padding 0 36px
+        border 1px solid #fff
+        border-radius 12px
+        p
+          flex-grow 1
+          margin-left 36px
+      .list__cell.active
+        color #1b1b1b
+        border 1px solid #738aff
+        border-radius 12px
+        i
+          background url('../../images/icon_choose.png')
+          background-size contain
+          width 36px
+          height 36px
+    .action
+      .btn
+        primary-button(702px, 88px, 32px)

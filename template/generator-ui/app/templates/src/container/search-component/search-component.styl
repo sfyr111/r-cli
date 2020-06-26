@@ -1,0 +1,41 @@
+@import '../../shared/stylus/variable.styl'
+@import '../../shared/stylus/mixin.styl'
+@import '~stylus-px2rem/index'
+html-font-size = 75px;
+
+.search__card
+  width 100%
+  height 88px
+  background-color #FFF
+  display flex
+  align-items center
+  .input__box
+    background #F4F4F4
+    width 606px
+    height 60px
+    border-radius 100px
+    border-radius 100px
+    margin-left 24px
+    margin-right 30px
+    display flex
+    align-items center
+    .icon__search
+      height 32px
+      width 32px
+      margin-left 20px
+      margin-right 16px
+    input
+      background-color #F4F4F4
+      font-size 28px
+      color #333
+      flex 1
+      &::placeholder
+        color #999
+    .icon__scan
+      height 44px
+      width 44px
+      margin-left 16px
+      margin-right 20px
+  span
+    font-size 30px
+    color #121212

@@ -1,0 +1,107 @@
+@import '../../shared/stylus/variable.styl'
+@import '../../shared/stylus/mixin.styl'
+@import '~stylus-px2rem/index'
+html-font-size = 75px;
+
+.activity-detail
+  .iphonexxx
+    height 68px
+    background-color $color-background-l
+  .activity-detail__container
+    .am-whitespace.am-whitespace-md
+      height 26px
+    .bg
+      background linear-gradient(-180deg, #FF6BB5 0%, #FF397E 100%);
+      height 200px
+      border-radius 0 0 20% 20%
+    .activity-info
+      margin-top -160px
+    .activity-info,
+    .people-feedback,
+    .equity-photo
+      .am-card
+        box-shadow: 0 2px 9px 0 rgba(0,0,0,0.04)
+        padding-bottom 0
+        .am-card-header
+          .am-card-header-content
+            span.title
+              font-size $font-size-large-s
+              color $color-text
+              line-height 1.9
+              font-weight 800
+          .am-card-header-extra
+            color $color-text-s
+        .am-card-body
+          padding-top 10px
+          padding-bottom 40px
+          div.cell
+            margin-top 30px
+            display flex
+            justify-content space-between
+            span.left
+              display inline-block
+              width 210px
+              line-height 1.4
+              color $color-text-s
+              font-size $font-size-medium-x
+            span.right
+              display inline-block
+              width 506px
+              line-height 1.4
+              margin-left 0px
+              text-align left
+              color $color-text-black
+              font-size $font-size-medium-x
+          .explanation
+            display flex
+            align-items center
+            margin-top 40px
+            height 30px
+            span:nth-of-type(1)
+              font-size $font-size-large
+              color $color-text-black
+              line-height 30px
+            span:nth-of-type(2)
+              font-size $font-size-medium
+              color $color-text-s
+              line-height 30px
+              margin-left 8px
+          .explanation-extra
+            font-size $font-size-medium
+            color #FFB637
+            line-height 1.4
+            margin-top 20px
+      .am-input-item
+        min-height auto
+        height 34px
+        padding-left 0
+        .am-list-line
+          .am-input-control
+            input
+              color $color-text-black
+              font-size $font-size-medium-x
+    .active
+      .am-button
+        border-radius 0
+      .am-button-disabled
+        background-color #ccc
+    .upload__content
+      .am-image-picker
+        .am-image-picker-list
+          padding-left 0
+          padding-right 0
+          margin-bottom 0
+          .am-image-picker-upload-btn
+            border .03rem solid #ddd
+          .am-image-picker-item
+            .am-image-picker-item-remove
+              background-repeat no-repeat
+              background-position center
+              width .55rem
+              height .55rem
+    .people-feedback,
+    .equity-photo
+      .am-card
+        .am-card-body
+          padding-bottom 28px
+

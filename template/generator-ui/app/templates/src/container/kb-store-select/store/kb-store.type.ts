@@ -1,0 +1,5 @@
+export const SAGA_KB_STORE_LIST_GET = 'kb-store/SAGA_KB_STORE_LIST_GET';
+export const SAGA_KB_STORE_WRITE_OFF = 'kb-store/SAGA_KB_STORE_WRITE_OFF';
+
+export const KB_STORE_LIST_UPDATE = 'kb-store/KB_STORE_LIST_UPDATE';
+export const KB_STORE_SELECTED_UPDATE = 'kb-store/KB_STORE_SELECTED_UPDATE';

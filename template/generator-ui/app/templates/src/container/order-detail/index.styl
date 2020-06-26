@@ -1,0 +1,109 @@
+@import '../../shared/stylus/variable.styl'
+@import '../../shared/stylus/mixin.styl'
+@import '~stylus-px2rem/index'
+html-font-size = 75px;
+
+.order-detail
+  display flex;
+  flex-direction column;
+  height 100vh;
+  .zheng
+    &::before
+      content "+￥"
+  .zheng2
+    &::before
+      content "￥"
+  .fu
+    &::before
+      content "-￥"
+  >.content
+    padding 18px;
+    flex 1 1 auto;
+    overflow auto;
+    .zitidian
+      >img
+        width 44px;
+        height 40px;
+        vertical-align middle;
+      >span
+        font-size: 28px;
+        vertical-align middle;
+  >.tishi
+      background-color #FFEEBB;
+      font-size 0;
+      line-height 80px;
+      display none;
+      &.show
+        display: block;
+      > img
+        width 32px;
+        vertical-align middle;
+        margin-left 20px;
+      > span
+        font-size 28px;
+        color #895D10;
+        font-weight bold;
+        vertical-align middle;
+        margin-left 20px;
+  >.footer
+    padding 20px 0;
+    background-color #fff;
+    border-top thin solid #ccc;
+    display none;
+    &.show
+      display block;
+    &.paddtp
+      padding-top 0;
+
+    >.payfor,.writeOff
+      primary-button(700px,88px,32px)
+      display none;
+      border none
+      &.show
+        display block;
+  .yihexiao_img,.daihexiao_img,.daizhifu_img
+    width 90px;
+    vertical-align middle;
+    margin-left 20px;
+
+  .sourceInfo,.repairInfo
+    .title
+      >span,img
+        vertical-align middle;
+    .bianhao
+      font-size 26px;
+      color #666666;
+      margin-top 30px;
+      >.count
+        float right;
+    .totalInfo
+      margin-top 10px;
+      .hide
+        display none
+      >div
+        padding 10px 0;
+        >.title
+          color #121212;
+          font-size 26px
+        >.money
+          font-size 28px;
+          float right;
+          /* &.discount::before
+            content: '-￥' */
+          &.actual
+            color #D0021B;
+
+  .am-card
+    min-height auto;
+    padding 24px;
+    border 0;
+    border-radius 18px;
+    box-shadow 0 0 10PX 0 rgba(0,0,0,0.05);
+    .am-card-header
+      font-size 28px;
+      color #121212;
+      padding 10px 0;
+    .am-card-body
+      border 0;
+      padding 10px 0;
+      min-height auto;

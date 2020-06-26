@@ -1,0 +1,40 @@
+@import '../../shared/stylus/variable.styl'
+@import '../../shared/stylus/mixin.styl'
+@import '~stylus-px2rem/index'
+html-font-size = 75px;
+
+.result
+  .result__container
+    width 100%
+    height 542px
+    display flex
+    flex-direction column
+    align-items center
+    padding-top 139px
+    figure
+      display flex
+      flex-direction column
+      align-items center
+      img
+        width 118px
+        height 118px
+      figcaption
+        margin-top 30px
+        font-size 30px
+        color #1b1b1b
+        font-weight 800
+    p.ext
+      color #999
+      font-size 24px
+      line-height 34px
+      margin-top 16px
+    .result__active
+      flex 1 1
+      display flex
+      align-items flex-end
+      justify-content space-between
+      width 550px
+      .result__btn--primary
+        primary-button(240px, 66px, 26px)
+      .result__btn--default
+        button(240px, 66px, 26px)
