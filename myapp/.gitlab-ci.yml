@@ -1,0 +1,90 @@
+# https://juejin.im/post/5d074d3c6fb9a07ece67d034 - 基于 GitLab CI 的前端工程CI/CD实践
+# https://github.com/nodejs/docker-node/issues/1015 - node:latest install rsync #1015
+# https://medium.com/@hfally/a-gitlab-ci-config-to-deploy-to-your-server-via-ssh-43bf3cf93775 - A gitlab-ci config to deploy to your server via ssh
+# http://zacksleo.top/2017/09/08/GitLab-CI%E4%BD%BF%E7%94%A8Rsync%E8%BF%9B%E8%A1%8C%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/ - GitLab-CI使用Rsync进行持续部署
+# https://github.com/giscafer/front-end-manual/issues/27 - 基于 GitLab CI 的前端工程CI/CD实践 #27
+# https://osur-devspot.univ-reunion.fr/eobs/eobs-front/-/blob/master/.gitlab-ci.yml - .gitlab-ci.yml
+# https://mirrors.ustc.edu.cn/help/alpine.html - Alpine Linux 源使用帮助
+
+variables:
+  HTML_SRC: "build/*.html"
+  STATIC_SRC: "build/"
+  HTML_DEST: "bizcent@10.254.0.144:/data/web/lsgc/write-off/"
+  STATIC_DEST: "bizcent@10.254.0.144:/data/static/lsgc/write-off"
+  NODE_MODULES_VERSION: 'node_modules:write-off-6.13'
+  CURRENT_BRANCH: $CI_COMMIT_REF_NAME
+
+cache:
+  key: '$NODE_MODULES_VERSION'
+  paths:
+  - node_modules/
+
+stages:
+- install
+- build
+- deploy
+
+install:
+  stage: install
+  script:
+  - pwd
+  - node -v
+  - npm config set registry http://172.172.178.31:4873/
+  - npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
+  - npm install
+  - ls
+  cache:
+    key: '$NODE_MODULES_VERSION'
+    paths:
+    - node_modules/
+  only:
+  - develop
+  tags:
+  - node-10
+
+build:
+  stage: build
+  script:
+  - npm run build
+  only:
+  - develop
+  tags:
+  - node-10
+  cache:
+    key: '$NODE_MODULES_VERSION'
+    policy: pull
+    paths:
+    - node_modules
+  artifacts:
+    paths:
+    - ./build
+
+deploy:
+  stage: deploy
+  before_script:
+  # - apk update
+  # - apk add rsync openssh openssl
+  - mkdir ~/.ssh
+  - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_dsa
+  - chmod 600 ~/.ssh/id_dsa
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  - cat ~/.ssh/config
+  - echo "10.254.0.161 miniapi.retailo2o.com" > /etc/hosts
+  - cat /etc/hosts
+  - ls node_modules/retailo2o-cli
+  - ls -l build/
+  # - export APP_ENV=test
+  script:
+  - chmod +r ./* -R
+  - rsync --version
+  #  - ssh -v bizcent@10.254.0.144
+  - npm run deploy:beta
+  only:
+  - develop
+  tags:
+  - node-10
+  cache:
+    key: '$NODE_MODULES_VERSION'
+    policy: pull
+    paths:
+    - node_modules/

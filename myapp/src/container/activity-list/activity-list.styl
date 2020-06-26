@@ -1,0 +1,49 @@
+@import '../../shared/stylus/variable.styl'
+@import '../../shared/stylus/mixin.styl'
+@import '~stylus-px2rem/index'
+html-font-size = 75px;
+
+.activity-list
+  .activity-list__container
+    .list
+      .loading
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: $font-size-medium-s;
+        height: 80px;
+      .list__item
+        .am-card
+          box-shadow: 0 2px 9px 0 rgba(0,0,0,0.04)
+          .am-card-header
+            .am-card-header-content
+              span.item__title
+                font-size $font-size-medium-x
+                color $color-text
+            .am-card-header-extra
+              flex auto
+              flex-grow initial
+              flex-shrink initial
+              font-size $font-size-medium
+              line-height inherit
+              span.item__extra
+                color $color-text-s
+                font-size $font-size-medium
+                line-height inherit
+              span.item__extra.active
+                color $color-theme
+          .am-card-body
+            .item__title
+              color $color-text
+              font-size $font-size-large
+              font-weight 800
+              line-height 1.4
+            div.time
+              margin-top 14px
+              span
+                color $color-text-s
+                font-size $font-size-medium-x
+              time
+                color $color-text-black
+                font-size $font-size-medium-x
+                margin-left 26px

@@ -1,0 +1,67 @@
+@import '../../shared/stylus/variable.styl'
+@import '../../shared/stylus/mixin.styl'
+@import '~stylus-px2rem/index'
+html-font-size = 75px;
+
+.cash
+  .cash__container
+    height 100vh
+    background-color #f7f7f7
+    display flex
+    flex-direction column
+    .cash__pay-info
+      margin-top 24px
+      background-color #fff
+      padding 32px 42px 38px 42px
+      .cash__pay-info--details
+        border-bottom  1px solid #dbdbdb
+        .details__item
+          font-size 26px
+          color #1b1b1b
+          padding-bottom 18px
+          display flex
+          justify-content space-between
+          align-items center
+      .cash__pay-info--total
+        padding-top 23px
+        .total
+          display flex
+          justify-content space-between
+          align-items center
+          p
+            font-size 30px
+            color #121212
+            font-weight 800
+          span
+            font-size 36px
+            color #d0021b
+            font-weight 800
+    .cash__pay-method
+      margin-top 24px
+      .cash__pay-method--item
+        .cell
+          display flex
+          justify-content space-between
+          > section
+            display flex
+            align-items center
+            img
+              width 56px
+              height 56px
+            span
+              margin-left 16px
+          > span
+            font-size 30px
+            color #D0021B
+        .am-list-item
+          flex-direction row-reverse
+        .am-list-item.am-list-item-active
+          background-color #fff
+    .cash__submit
+      display flex
+      flex 1
+      align-items flex-end
+      padding-bottom 66px
+      .btn
+        primary-button(702px, 88px, 32px)
+

@@ -1,0 +1,67 @@
+@import '~stylus-px2rem/index'
+html-font-size = 75px;
+
+.sourceInfo
+  .goodsList
+    margin-top 10px;
+    .goodsItem
+      /* border-bottom: thin solid #D8D8D8; */
+      &:first-child
+        padding-top 0;
+      .delline.show
+        display block;
+
+.goodsItem
+  display flex;
+  align-items center;
+  padding 20px 0;
+  border-bottom thin solid #D8D8D8;
+  >.imgWrap
+    width 160px;
+    height 160px;
+    font-size 0;
+    >img
+      width 100%;
+      height 100%;
+  >.info
+    padding 0 18px;
+    flex 1 1 auto;
+    .title
+      font-size 26px;
+      color #121212;
+    .spec
+      font-size 24px;
+      color #666;
+      margin-top 17px;
+    .footer
+      margin-top 20px;
+      .delline
+        display none;
+        margin-bottom 10px;
+        >.delprice
+          font-size 26px;
+          color #999;
+        >.delnum
+          &::before
+            content "X"
+          float right;
+          font-size 26px;
+          color #999;
+      .price
+        display none;
+        &.show
+          display inline;
+        font-size 28px;
+        color #D0021B;
+      .num
+        &::before
+          content "X"
+        float right;
+        font-size 28px;
+        color #666;
+      .weight
+        &::after
+          content "kg"
+        float right;
+        font-size 28px;
+        color #666;
