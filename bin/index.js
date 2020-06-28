@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 const path = require('path');
 const fs = require('fs');
 const program = require('commander');
@@ -7,7 +8,7 @@ const init = require('../packages/init')
 const syncBetaRemote = require('../packages/syncBetaRemote')
 const publishBeta = require('../packages/publishBeta')
 const publishRelease = require('../packages/publishRelease')
-const genPathFile = require('../packages/genPathFile')
+const { genTemplate, genComponent, genContainer } = require('../packages/genPathFile')
 const testSync = require('../packages/testSync')
 // const config = require('../platform.config')
 const axios = require('axios')
@@ -68,12 +69,25 @@ const PKG = require('../package.json')
 			publishRelease(config, version)
 		})
 	
-	
 	program
 		.command('new <projectPath>')
-		.description('生成文件')
+		.description('生成项目模板')
 		.action((projectPath) => {
-			genPathFile(projectPath)
+			genTemplate(projectPath)
+		})
+	
+	program
+		.command('component [name]')
+		.description('生成组件模板')
+		.action((name) => {
+			genComponent(name)
+		})
+	
+	program
+		.command('container [name]')
+		.description('生成模块模板')
+		.action((name) => {
+			genContainer(name)
 		})
 	
 	program.parse(process.argv)

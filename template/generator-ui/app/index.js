@@ -37,7 +37,7 @@ module.exports = class extends Generator {
       type: 'input',
       name: 'description',
       message: 'description',
-      default: 'A Vue.js project'
+      default: 'A new project'
     }]).then(answers => {
       this.project = answers.project || this.options.project;
       this.user = answers.user;
